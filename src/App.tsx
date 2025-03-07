@@ -9,6 +9,7 @@ import Auth from '@/pages/Auth';
 import Dashboard from '@/pages/Dashboard';
 import Generate from '@/pages/Generate';
 import Upload from '@/pages/Upload';
+import ViewComponents from '@/pages/ViewComponents';
 import Profile from '@/pages/Profile';
 import NotFound from '@/pages/NotFound';
 
@@ -26,6 +27,7 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="generate" element={<Generate />} />
         <Route path="upload" element={<Upload />} />
+        <Route path="view" element={<ViewComponents />} />
         <Route path="profile" element={<Profile />} />
       </Route>
       

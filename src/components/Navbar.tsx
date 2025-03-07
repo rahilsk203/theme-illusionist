@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Code, Upload, User, LogOut } from 'lucide-react';
+import { Code, Upload, User, LogOut, Eye } from 'lucide-react';
 
 const navItems = [
   { 
@@ -16,6 +16,11 @@ const navItems = [
     path: '/dashboard/upload', 
     label: 'Upload', 
     icon: Upload 
+  },
+  { 
+    path: '/dashboard/view', 
+    label: 'View', 
+    icon: Eye 
   },
   { 
     path: '/dashboard/profile', 
