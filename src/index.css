@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 260 60% 5%;
+    --foreground: 0 0% 98%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card: 260 40% 10%;
+    --card-foreground: 0 0% 98%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 260 40% 10%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 220 70% 50%;
+    --primary: 260 73% 65%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 240 5.9% 10%;
+    --secondary: 260 30% 15%;
     --secondary-foreground: 0 0% 98%;
     
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 260 30% 15%;
+    --muted-foreground: 240 5% 75%;
     
-    --accent: 220 70% 95%;
-    --accent-foreground: 220 70% 40%;
+    --accent: 260 73% 65%;
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 220 70% 50%;
+    --border: 260 30% 20%;
+    --input: 260 30% 20%;
+    --ring: 260 73% 65%;
 
     --radius: 0.75rem;
   }
@@ -49,18 +49,33 @@
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden font-sans;
+    @apply bg-background text-foreground font-sans;
+    background-image: linear-gradient(120deg, #2E1065 0%, #4338CA 30%, #6D28D9 60%, #7C3AED 100%);
+    background-attachment: fixed;
+    background-size: cover;
   }
 }
 
 @layer utilities {
   /* Glass morphism styles */
   .glass {
-    @apply backdrop-blur-md bg-white/40 border border-white/20 shadow-sm;
+    @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-md;
   }
   
   .glass-dark {
-    @apply backdrop-blur-md bg-black/10 border border-white/10 shadow-md;
+    @apply backdrop-blur-md bg-black/20 border border-white/5 shadow-md;
+  }
+  
+  .glass-card {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-xl shadow-xl transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20;
+  }
+
+  .glass-input {
+    @apply bg-black/20 border border-white/10 text-white rounded-lg focus:border-primary focus:ring-1 focus:ring-primary;
+  }
+  
+  .animated-border {
+    @apply border border-transparent relative before:absolute before:inset-0 before:p-[1px] before:rounded-[inherit] before:content-[''] before:bg-gradient-to-r before:from-primary/50 before:via-purple-500/50 before:to-indigo-500/50 before:-z-10 before:animate-gradient-x;
   }
   
   /* Animation utilities */
@@ -83,7 +98,7 @@
   
   /* Code block styles */
   .code-block {
-    @apply font-mono text-sm p-4 rounded-md bg-secondary/5 text-foreground/90 overflow-x-auto border border-border;
+    @apply font-mono text-sm p-4 rounded-md bg-secondary text-foreground/90 overflow-x-auto border border-border;
   }
   
   /* Custom scrollbar */
@@ -97,7 +112,7 @@
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/30 transition-colors;
+    @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
   }
 }
 
@@ -105,7 +120,11 @@
 input:focus-visible, 
 textarea:focus-visible, 
 select:focus-visible {
-  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background transition-shadow;
+  @apply outline-none ring-2 ring-primary/70 ring-offset-2 ring-offset-background transition-shadow;
+}
+
+button {
+  @apply transition-all duration-300;
 }
 
 /* Page transition animations */
@@ -123,4 +142,27 @@ select:focus-visible {
 
 .page-exit-active {
   @apply opacity-0 transition-opacity duration-300 ease-in;
+}
+
+/* Uiverse.io specific styles */
+.uiverse-button {
+  @apply relative bg-black/30 text-white px-5 py-2.5 rounded-full border border-white/10 overflow-hidden transition-all duration-300 hover:bg-white/10 hover:border-primary/60 hover:shadow-[0_0_20px_rgba(123,52,237,0.4)] hover:shadow-primary/30 hover:scale-105;
+}
+
+.uiverse-button::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 w-[200%] -translate-x-full skew-x-[30deg];
+  transition: transform 0.5s ease;
+}
+
+.uiverse-button:hover::before {
+  transform: translateX(0) skew-x-[30deg];
+}
+
+.uiverse-input {
+  @apply bg-black/30 border border-white/10 text-white rounded-lg px-4 py-3 w-full transition-all duration-300 focus:border-primary/60 focus:shadow-[0_0_10px_rgba(123,52,237,0.3)];
+}
+
+.element-card {
+  @apply glass-card p-5 hover:scale-[1.02] cursor-pointer;
 }

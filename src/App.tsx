@@ -25,6 +25,7 @@ export default function App() {
       <Route path="/auth" element={<Auth />} />
       
       <Route path="/dashboard" element={<Dashboard />}>
+        <Route index element={<Generate />} />
         <Route path="generate" element={<Generate />} />
         <Route path="upload" element={<Upload />} />
         <Route path="view" element={<ViewComponents />} />

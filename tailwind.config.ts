@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -95,6 +94,28 @@ export default {
 				'shimmer': {
 					'0%': { backgroundPosition: '-1000px 0' },
 					'100%': { backgroundPosition: '1000px 0' }
+				},
+				'glow': {
+					'0%, 100%': { 
+						'box-shadow': '0 0 15px rgba(139, 92, 246, 0.5)',
+						'border-color': 'rgba(139, 92, 246, 0.5)'
+					},
+					'50%': { 
+						'box-shadow': '0 0 30px rgba(139, 92, 246, 0.8)',
+						'border-color': 'rgba(139, 92, 246, 0.8)'
+					}
+				},
+				'float-slow': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-8px)' }
+				},
+				'gradient-x': {
+					'0%, 100%': {
+						'background-position': '0% 50%'
+					},
+					'50%': {
+						'background-position': '100% 50%'
+					}
 				}
 			},
 			animation: {
@@ -106,11 +127,18 @@ export default {
 				'slide-out': 'slide-out 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
 				'pulse-gentle': 'pulse-gentle 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
-				'shimmer': 'shimmer 2s linear infinite'
+				'shimmer': 'shimmer 2s linear infinite',
+				'glow': 'glow 3s ease-in-out infinite',
+				'float-slow': 'float-slow 4s ease-in-out infinite',
+				'gradient-x': 'gradient-x 15s ease infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
 				display: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif']
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'uiverse-gradient': 'linear-gradient(120deg, #2E1065 0%, #4338CA 30%, #6D28D9 60%, #7C3AED 100%)'
 			}
 		}
 	},
