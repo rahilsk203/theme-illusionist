@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/components/ui/use-toast';
@@ -46,9 +45,7 @@ export default function ViewComponents() {
   const [selectedTechnology, setSelectedTechnology] = useState('');
   const [selectedComponent, setSelectedComponent] = useState<Component | null>(null);
 
-  // Mock data for demonstration (in a real app, fetch from API)
   useEffect(() => {
-    // Simulate API call
     setTimeout(() => {
       const mockComponents = [
         {
@@ -185,7 +182,10 @@ export default function ViewComponents() {
               </div>
             </CardHeader>
             <CardContent>
-              <CodeDisplay code={selectedComponent.code} />
+              <CodeDisplay 
+                code={selectedComponent.code} 
+                technology={selectedComponent.technology} 
+              />
             </CardContent>
           </Card>
         </motion.div>

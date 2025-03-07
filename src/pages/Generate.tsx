@@ -1,4 +1,3 @@
-
 import { useState, FormEvent } from 'react';
 import { api } from '@/lib/api';
 import { useAuth } from '@/hooks/useAuth';
@@ -181,7 +180,7 @@ export default function Generate() {
         </Card>
       </motion.div>
       
-      <CodeDisplay code={generatedCode} />
+      <CodeDisplay code={generatedCode} technology={technology} />
     </div>
   );
 }
